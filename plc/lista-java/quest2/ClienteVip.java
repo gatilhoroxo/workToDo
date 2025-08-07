@@ -1,5 +1,7 @@
 package quest2;
 
-public abstract class ClienteVip extends Cliente {
-    
+public class ClienteVip extends Cliente {
+    public ClienteVip(String nome, int mes){
+        super(nome, mes);
+    }
 }
