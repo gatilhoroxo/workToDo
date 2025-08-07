@@ -5,7 +5,7 @@ public class Main {
         Queue<Person> queue = new Queue<>(5);
 
         queue.push(new Child(5, "Child 1"));
-        queue.push(new Adult(50, "Adult 1"));
+        queue.push(new Adult(30, "Adult 1"));
         queue.push(new Child(6, "Child 2"));
         queue.push(new Adult(20, "Adult 2"));
         queue.push(new Child(8, "Child 3"));

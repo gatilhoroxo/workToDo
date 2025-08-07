@@ -1,25 +1,25 @@
 package quest1;
 
-
-// obs interface Comparable
-public abstract class Person {
-    private int age;
+public abstract class Person implements Comparable<Person> {
     private String name;
+    private int age;
 
-    public Person() {}
     public Person(int age, String name){
-        this.age = age;
         this.name = name;
+        this.age = age;
     }
+
+    public abstract Ticket getTicketType();
     
-    public int compareTo (Person person){ return 0; }
     public String getName() { return name; }
     public int getAge() { return age; }
-
-    public abstract String getTicktType();
-
+    
+    @Override
+    public int compareTo(Person coisa){
+        return Integer.compare(coisa.age, this.age);
+    }
     @Override
     public String toString() {
-        return name + ":" + age + "[" + getTicktType() + "]";
+        return name + ":" + age + "[" + getTicketType() + "]";
     }
 }

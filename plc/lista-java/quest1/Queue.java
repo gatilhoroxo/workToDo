@@ -1,36 +1,30 @@
 package quest1;
+import java.util.ArrayList;
+import java.util.Collections;
 
 //conceitos de generics ??
-public class Queue<T> {
-    private T pilha[];
-    private int tam;
-    private int last;
+public class Queue<T extends Person> {
+    private ArrayList<T> fila;
 
     public Queue(){
-        last = 0;
-        this.tam = 10;
+        fila = new ArrayList<>(10);
     }
     public Queue(int tam){
-        last = 0;
-        this.tam = tam;
+        fila = new ArrayList<>(tam);
     }
     
     public void push(T coisa) {
-        if(last == tam) {
-            System.out.println("tamanho maximo da fila");
-            return;
-        }
-        //colocar as pessoas mais velhas antes das mais novas
-        pilha[last] = coisa;
-        last++;
+        fila.add(coisa);
+        Collections.sort(fila);
         return;
     }
     public T pop(){ 
-        T coisa = pilha[last];
-        last--;
-        return coisa;
+        if(isEmpty()){
+            return null;
+        }
+        return fila.remove(0);
     }
     public Boolean isEmpty(){
-        return (last == 0);
+        return fila.isEmpty();
     }
 }
