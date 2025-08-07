@@ -6,13 +6,15 @@ public class Cart {
         buyItems = new Items[10]; // Initializing with a fixed size
         itemCount = 0;
     }
-
+ 
     public String searchItem(String name) throws NotFound, NullParameters { //Pesquisa item pelo nome
+        if(name == null) throw new NullParameters();
         for (int i = 0; i < itemCount; i++) {
             if (buyItems[i].getName().equals(name)) {
                 return "Item found: " + buyItems[i].getName() + " at price: " + buyItems[i].getPrice();
             }
         }
+        throw new NotFound();
     }
 
     public void addItem(Items item) throws NotEnoughSpace, ItemAlreadyExists, NullParameters { //adiciona item ao carrinho
